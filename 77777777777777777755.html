@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebStudio Pro – профессиональная веб-разработка и дизайн</title>
+    <meta name="description" content="WebStudio Pro: создание современных сайтов, веб-дизайн и разработка. Заказать сайт под ключ, SEO-оптимизация, мобильные приложения в Москве.">
+    <meta name="keywords" content="создание сайтов, веб-разработка, дизайн сайтов, заказать сайт, SEO-оптимизация, интернет-магазин, лендинг, мобильные приложения">
+    <link rel="icon" type="image/x-icon" href="https://img.icons8.com/color/48/000000/code.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Шапка сайта */
+        header {
+            background-color: #ffffff;
+            padding: 20px 0 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .logo-text {
+            font-size: 28px;
+            font-weight: 700;
+            color: #1a1a2e;
+            letter-spacing: 1px;
+        }
+        
+        .logo-icon {
+            color: #2d5be3;
+            font-size: 24px;
+        }
+        
+        /* Навигационные кнопки под логотипом */
+        .full-width-nav {
+            width: 100vw;
+            margin-left: calc(-50vw + 50%);
+            background-color: #1a1a2e;
+            border-top: 1px solid #16213e;
+            padding: 0;
+        }
+        
+        nav {
+            display: flex;
+            width: 100%;
+            justify-content: center;
+        }
+        
+        .nav-button {
+            flex: 1;
+            padding: 18px 5px;
+            background-color: #1a1a2e;
+            border: none;
+            border-right: 1px solid #16213e;
+            color: #e6e6e6;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            text-align: center;
+            font-size: 16px;
+        }
+        
+        .nav-button:last-child {
+            border-right: none;
+        }
+        
+        .nav-button:hover, .nav-button.active {
+            background-color: #2d5be3;
+            color: white;
+        }
+        
+        /* Основной контент */
+        main {
+            padding: 40px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            color: #1a1a2e;
+            font-size: 32px;
+            position: relative;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #2d5be3 0%, #4a90e2 100%);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+        
+        /* Галерея изображений */
+        .gallery {
+            display: flex;
+            justify-content: space-between;
+            gap: 30px;
+            margin-bottom: 60px;
+            flex-wrap: wrap;
+        }
+        
+        .gallery-item {
+            flex: 1;
+            min-width: 300px;
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-10px);
+        }
+        
+        .gallery-img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .gallery-title {
+            padding: 20px;
+            text-align: center;
+            font-weight: 600;
+            font-size: 18px;
+            color: #1a1a2e;
+        }
+        
+        /* Декоративное поле - растянуто на весь экран */
+        .decoration-field {
+            background: linear-gradient(135deg, #2d5be3 0%, #4a90e2 100%);
+            color: white;
+            padding: 50px 15px;
+            margin-bottom: 60px;
+            position: relative;
+            overflow: hidden;
+            width: 100vw;
+            margin-left: calc(-50vw + 50%);
+        }
+        
+        .decoration-field:before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+            background-size: 20px 20px;
+            opacity: 0.3;
+            z-index: 0;
+        }
+        
+        .decoration-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        .decoration-title {
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+        
+        .decoration-text {
+            font-size: 20px;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        /* Блок с изображением и описанием */
+        .image-description {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            margin-bottom: 60px;
+            background-color: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+        }
+        
+        .description-img {
+            flex: 1;
+            max-width: 50%;
+            height: 350px;
+            object-fit: cover;
+        }
+        
+        .description-content {
+            flex: 1;
+            padding: 40px;
+        }
+        
+        .description-title {
+            font-size: 24px;
+            color: #1a1a2e;
+            margin-bottom: 15px;
+        }
+        
+        .description-text {
+            color: #495057;
+            line-height: 1.8;
+        }
+        
+        /* Услуги */
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 50px;
+        }
+        
+        .service-card {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .service-icon {
+            font-size: 40px;
+            color: #2d5be3;
+            margin-bottom: 15px;
+        }
+        
+        .service-title {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: #1a1a2e;
+        }
+        
+        /* Нижняя часть сайта */
+        footer {
+            background-color: #1a1a2e;
+            color: #e6e6e6;
+            padding: 50px 0 30px;
+        }
+        
+        .footer-content {
+            display: flex;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+        
+        .footer-column {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .footer-title {
+            font-size: 20px;
+            margin-bottom: 20px;
+            color: #2d5be3;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-title:after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 3px;
+            background-color: #2d5be3;
+            bottom: 0;
+            left: 0;
+        }
+        
+        .footer-text {
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            color: #e6e6e6;
+            font-size: 20px;
+            transition: color 0.3s;
+        }
+        
+        .social-links a:hover {
+            color: #2d5be3;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            margin-top: 40px;
+            border-top: 1px solid #16213e;
+            color: #bdc3c7;
+            font-size: 14px;
+        }
+        
+        /* Адаптивность */
+        @media (max-width: 992px) {
+            .gallery {
+                justify-content: center;
+            }
+            
+            .gallery-item {
+                min-width: 45%;
+            }
+            
+            .image-description {
+                flex-direction: column;
+            }
+            
+            .description-img {
+                max-width: 100%;
+                width: 100%;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .gallery-item {
+                min-width: 100%;
+            }
+            
+            .footer-column {
+                min-width: 100%;
+            }
+            
+            .decoration-title {
+                font-size: 26px;
+            }
+            
+            .decoration-text {
+                font-size: 18px;
+            }
+            
+            /* Навигация на мобильных */
+            nav {
+                flex-direction: column;
+            }
+            
+            .nav-button {
+                border-right: none;
+                border-bottom: 1px solid #16213e;
+                padding: 15px 5px;
+            }
+            
+            .nav-button:last-child {
+                border-bottom: none;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .decoration-title {
+                font-size: 22px;
+            }
+            
+            .decoration-text {
+                font-size: 16px;
+            }
+            
+            .service-card {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Шапка сайта с логотипом -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <div class="logo-text">WebStudio Pro</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Навигационные кнопки -->
+        <div class="full-width-nav">
+            <nav>
+                <a href="#" class="nav-button active">Главная</a>
+                <a href="#" class="nav-button">Услуги</a>
+                <a href="#" class="nav-button">Проекты</a>
+                <a href="#" class="nav-button">Контакты</a>
+            </nav>
+        </div>
+    </header>
+    
+    <main class="container">
+        <h1 class="section-title">Профессиональная веб-разработка для вашего бизнеса</h1>
+        
+        <!-- Галерея изображений -->
+        <div class="gallery">
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1558655146-364adaf1fcc9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Веб-разработка" class="gallery-img">
+                <div class="gallery-title">Веб-разработка</div>
+            </div>
+            
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1545235617-9465d2a55698?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="SEO-оптимизация" class="gallery-img">
+                <div class="gallery-title">SEO-оптимизация</div>
+            </div>
+            
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Мобильные приложения" class="gallery-img">
+                <div class="gallery-title">Мобильные приложения</div>
+            </div>
+        </div>
+        
+        <!-- Услуги -->
+        <h2 class="section-title">Наши услуги</h2>
+        <div class="services">
+            <!-- Удален контент, соответствующий тексту из изображения -->
+        </div>
+    </main>
+    
+    <!-- Декоративное поле -->
+    <div class="decoration-field">
+        <div class="decoration-content">
+            <h2 class="decoration-title">Технологии + маркетинг = рост бизнеса</h2>
+            <p class="decoration-text">Мы создаем не просто сайты, а эффективные инструменты для развития вашего бизнеса в цифровой среде с гарантированным результатом.</p>
+        </div>
+    </div>
+    
+    <div class="container">
+        <!-- Блок с изображением и описанием -->
+        <div class="image-description">
+            <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Наша команда" class="description-img">
+            <div class="description-content">
+                <h3 class="description-title">Наш подход к работе</h3>
+                <p class="description-text">В WebStudio Pro мы используем комплексный подход: от анализа целевой аудитории и конкурентов до разработки стратегии продвижения.</p>
+                <p class="description-text">Каждый проект проходит этап глубокого исследования, проектирования пользовательского опыта и тестирования перед запуском. Мы гарантируем не только техническую реализацию, но и достижение бизнес-целей.</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Подвал сайта -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h4 class="footer-title">WebStudio Pro</h4>
+                    <p class="footer-text">Профессиональная студия веб-разработки и цифрового маркетинга. Создаем сайты, которые работают на результат.</p>
+                    <p class="footer-text">Основана в 2015 году. За это время реализовали более 200 успешных проектов для малого и среднего бизнеса.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-vk"></i></a>
+                        <a href="#"><i class="fab fa-telegram"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h4 class="footer-title">Контакты</h4>
+                    <p class="footer-text"><i class="fas fa-map-marker-alt"></i> Москва, ул. Большая Дмитровка, д. 32</p>
+                    <p class="footer-text"><i class="fas fa-phone"></i> +7 (495) 789-01-23</p>
+                    <p class="footer-text"><i class="fas fa-envelope"></i> info@webstudiopro.ru</p>
+                    <p class="footer-text"><i class="fas fa-clock"></i> Пн–Пт: 9:00–18:00</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Навигация
+        document.querySelectorAll('.nav-button').forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                document.querySelectorAll('.nav-button').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                
+                this.classList.add('active');
+                
+                const buttonText = this.textContent;
+                let targetSection;
+                
+                switch(buttonText) {
+                    case 'Главная':
+                        window.scrollTo({top: 0, behavior: 'smooth'});
+                        break;
+                    case 'Услуги':
+                        targetSection = document.querySelector('.services');
+                        targetSection.scrollIntoView({behavior: 'smooth', block: 'start'});
+                        break;
+                    case 'Проекты':
+                        targetSection = document.querySelector('.gallery');
+                        targetSection.scrollIntoView({behavior: 'smooth', block: 'start'});
+                        break;
+                    case 'Контакты':
+                        targetSection = document.querySelector('footer');
+                        targetSection.scrollIntoView({behavior: 'smooth'});
+                        break;
+                }
+            });
+        });
+        
+        // Анимация при прокрутке
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('.gallery-item, .image-description, .service-card, .footer-column').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            observer.observe(el);
+        });
+        
+        const decorationField = document.querySelector('.decoration-field');
+        decorationField.style.opacity = '0';
+        decorationField.style.transform = 'translateY(20px)';
+        decorationField.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+        observer.observe(decorationField);
+    </script>
+</body>
+</html>
